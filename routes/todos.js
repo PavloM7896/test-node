@@ -4,10 +4,12 @@ var Todo = require('../models/Todo.js');
 
 /* GET /todos listing. */
 router.get('/', function(req, res, next) {
-  Todo.find(function (err, todos) {
-    if (err) return next(err);
-    res.json(todos);
-  });
+    Todo.find(function (err, todos) {
+        if (err) return next(err);
+        //res.writeHead(200, {'Content-Type': 'application/json'});
+        //res.send( todos, 200 );
+        res.status(200).json(todos);
+    });
 });
 
 /* POST /todos */
