@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
     res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE')
     res.setHeader('Access-Control-Allow-Headers','X-Requested-With,content-type')
     res.setHeader('Access-Control-Allow-Credentials',true)
-    res.status(200).json(post);
+    res.status(201).json(post);
   });
 });
 
@@ -30,35 +30,23 @@ router.post('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   Todo.findById(req.params.id, function (err, post) {
     if (err) return next(err);
-    res.setHeader('Access-Control-Allow-Origin','http:/localhost:3000')
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE')
-    res.setHeader('Access-Control-Allow-Headers','X-Requested-With,content-type')
-    res.setHeader('Access-Control-Allow-Credentials',true)
-    res.status(200).json(post);
+    res.json(post);
   });
 });
 
 /* PUT /todos/:id */
 router.put('/:id', function(req, res, next) {
   Todo.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
-    if (err) return next(err);
-    res.setHeader('Access-Control-Allow-Origin','http:/localhost:3000')
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE')
-    res.setHeader('Access-Control-Allow-Headers','X-Requested-With,content-type')
-    res.setHeader('Access-Control-Allow-Credentials',true)
-    res.status(200).json(post);
+    if (err) return next(err);  
+    res.json(post);
   });
 });
 
 /* DELETE /todos/:id */
 router.delete('/:id', function(req, res, next) {
   Todo.findByIdAndRemove(req.params.id, req.body, function (err, post) {
-    if (err) return next(err);
-    res.setHeader('Access-Control-Allow-Origin','http:/localhost:3000')
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE')
-    res.setHeader('Access-Control-Allow-Headers','X-Requested-With,content-type')
-    res.setHeader('Access-Control-Allow-Credentials',true)
-    res.status(200).json(post);
+    if (err) return next(err);   
+    res.json(post);
   });
 });
 
