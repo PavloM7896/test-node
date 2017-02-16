@@ -6,7 +6,7 @@ var Todo = require('../models/Todo.js');
 router.get('/', function(req, res, next) {
   Todo.find(function (err, todos) {
     if (err) return next(err);
-    res.setHeader('Access-Control-Allow-Origin','http:/localhost:3000')
+    res.setHeader('Access-Control-Allow-Origin','http://localhost:3000')
     res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE')
     res.setHeader('Access-Control-Allow-Headers','X-Requested-With,content-type')
     res.setHeader('Access-Control-Allow-Credentials',true)
@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   Todo.create(req.body, function (err, post) {
     if (err) return next(err);
-    res.setHeader('Access-Control-Allow-Origin','http:/localhost:3000')
+    res.setHeader('Access-Control-Allow-Origin','http://localhost:3000')
     res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE')
     res.setHeader('Access-Control-Allow-Headers','X-Requested-With,content-type')
     res.setHeader('Access-Control-Allow-Credentials',true)
