@@ -8,6 +8,10 @@ router.get('/', function(req, res, next) {
         if (err) return next(err);
         //res.writeHead(200, {'Content-Type': 'application/json'});
         //res.send( todos, 200 );
+        res.setHeader('Access-Control-Allow-Origin','http:/localhost:3000')
+        res.setHeader('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,PATCH,DELETE')
+        res.setHeader('Access-Control-Allow-Headers','X-Requested-With,content-type')
+        res.setHeader('Access-Control-Allow-Credentials',true)
         res.status(200).json(todos);
     });
 });
