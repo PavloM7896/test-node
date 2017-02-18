@@ -60,7 +60,7 @@
 
           $scope.save = function(){
             if(!$scope.newTodo || $scope.newTodo.length < 1) return;
-            var todo = new Todos({ name: $scope.newTodo, completed: false, _id: $scope.todos.length + 3  });
+            var todo = new Todos({ name: $scope.newTodo, completed: false});
             todo.$save(function(){
               $scope.todos.push(todo);
               $scope.newTodo = ''; // clear textbox
