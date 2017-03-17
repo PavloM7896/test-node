@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
-var jwt    = require('jsonwebtoken');
+// var jwt    = require('jsonwebtoken');
  var User = require('../models/User.js');
 
 // route to authenticate a user (POST http://localhost:8080/api/authenticate)
@@ -23,7 +23,7 @@ router.post('/', function(req, res) {
             } else {
                 // if user is found and password is right
                 // create a token
-                var token = jwt.sign(user, 'pasha7896', {
+                //var token = jwt.sign(user, 'pasha7896', {
                     //expiresInMinutes: 1440 // expires in 24 hours
                 });
                 // return the information including token as JSON
