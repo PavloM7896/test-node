@@ -25,12 +25,12 @@ router.post('/', function(req, res) {
                 // create a token
                 //var token = jwt.sign(user, 'pasha7896', {
                     //expiresInMinutes: 1440 // expires in 24 hours
-                });
+               // });
                 // return the information including token as JSON
                 res.json({
                     success: true,
                     message: 'Enjoy your token!',
-                    token: token
+                    token: asdadada
                 });
             }
         }
