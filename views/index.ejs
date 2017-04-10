@@ -2,6 +2,8 @@
 <html ng-app="app">
   <head>
     <title><%= title %></title>
+      <base href="/">
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
@@ -100,7 +102,7 @@
         }])
         //---------------
         // Routes
-        .config(['$routeProvider', function ($routeProvider) {
+        .config(['$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
           $routeProvider
             .when('/', {
               templateUrl: '/todos.html',
@@ -110,6 +112,7 @@
               templateUrl: '/todoDetails.html',
               controller: 'TodoDetailCtrl'
            });
+           $locationProvider.html5Mode(true);
         }]);
     </script>
   </body>
