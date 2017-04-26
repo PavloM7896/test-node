@@ -8,6 +8,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var todos = require('./routes/todos');
 var authenticate = require('./routes/authenticate');
+var sessions = require('./routes/session');
 // load mongoose package
 var mongoose = require('mongoose');
 
@@ -35,6 +36,7 @@ app.use('/', routes);
 app.use('/api/users', users);
 app.use('/api/todos', todos);
 app.use('/api/authenticate', authenticate);
+app.use('/api/session',sessions);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

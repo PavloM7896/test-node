@@ -15,7 +15,18 @@ router.post('/', function(req, res) {
     }, function(err, user) {
         if (err) throw err;
         if (!user) {
-            res.json({ success: false, message: 'Authentication failed. User not found.' });
+             var user = new User({
+                name: req.body.name,
+                password: req.body.password,
+                admin: false
+            });
+            // save the sample user
+            user.save(function (err) {
+                if (err) throw err;
+                console.log('User saved successfully');
+                res.json({success: true, message: 'User saved successfully'});
+            });
+            //res.json({ success: false, message: 'Authentication failed. User not found.' });
         } else if (user) {
             // check if password matches
             if (user.password != req.body.password) {
@@ -29,8 +40,8 @@ router.post('/', function(req, res) {
                 // return the information including token as JSON
                 res.json({
                     success: true,
-                    message: 'Enjoy your token!',
-                    token: asdadada
+                    message: 'Authenticated',
+                   /* token: ""*/
                 });
             }
         }
